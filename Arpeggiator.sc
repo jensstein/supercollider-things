@@ -111,12 +111,21 @@ Arpeggiator {
 		// finder den tone i skalaen, som er tættest på den givne tone
 		note_correct = {arg item;
 			if(item.class == Symbol, {item}, {
-				var base = (item / 10).floor * 10;
-				var match = (item % (base + scale));
-				var close = scale[match.find((match.copy.sort)[0].asArray)];
-				base + close;
+				if(item.class == Array, {
+					item.collect({arg arr_item;
+						this.findMatchByScale(scale, arr_item);
+					});
+				}, {
+					this.findMatchByScale(scale, item)
+				});
 			});
 		}
+	}
+	findMatchByScale {arg scale, item;
+		var base = (item / 10).floor * 10;
+		var match = (item % (base + scale));
+		var close = scale[match.find((match.copy.sort)[0].asArray)];
+		^(base + close);
 	}
 	set_notes {arg notes;
 		// this ser ud til at være nødvendig her for at få ændringer til at slå igennem
