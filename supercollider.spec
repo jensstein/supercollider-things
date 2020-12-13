@@ -17,6 +17,7 @@ Requires: qt5-qtsvg
 Requires: qt5-linguist
 Requires: qt5-qtwebsockets
 Requires: fftw
+Requires: alsa-lib
 
 BuildRequires: cmake
 BuildRequires: fftw3-devel
@@ -33,6 +34,7 @@ BuildRequires: qt5-qtsvg-devel
 BuildRequires: qt5-linguist
 BuildRequires: qt5-qtwebsockets-devel
 BuildRequires: systemd-devel
+BuildRequires: alsa-lib-devel
 
 %description
 SuperCollider is an object oriented programming environment for

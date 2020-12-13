@@ -4,7 +4,8 @@ RUN dnf upgrade -y --refresh && \
 	dnf install -y cmake make gcc g++ libsndfile-devel \
 	libXt-devel jack-audio-connection-kit-devel qt5-qtbase-devel \
 	qt5-qtsvg-devel qt5-linguist qt5-qtwebsockets-devel \
-	qt5-qtwebengine-devel systemd-devel fftw-devel libatomic && \
+	qt5-qtwebengine-devel systemd-devel fftw-devel libatomic \
+	alsa-lib-devel && \
 	dnf clean all
 
 RUN dnf install -y rpm-build rpmdevtools
